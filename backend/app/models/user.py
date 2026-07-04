@@ -35,4 +35,7 @@ class User(BaseModel):
         nullable=False
     )
 
-  
+    transactions: Mapped[list["Transaction"]] = relationship(
+        back_populates="user",
+        cascade="all, delete-orphan"
+    )

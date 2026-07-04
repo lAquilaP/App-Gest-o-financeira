@@ -5,25 +5,11 @@ from app.models.base_model import BaseModel
 from sqlalchemy import Date, Enum as SqlEnum, ForeignKey, Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import TYPE_CHECKING
-
+from app.enums.transaction_type import TransactionType
+from app.enums.transaction_category import TransactionCategory
 
 if TYPE_CHECKING:
     from app.models.user import User
-
-class TransactionType(str, Enum):
-    RECEITA = "RECEITA"
-    DESPESA = "DESPESA"
-
-
-class TransactionCategory(str, Enum):
-    ALIMENTACAO = "ALIMENTACAO"
-    TRANSPORTE = "TRANSPORTE"
-    MORADIA = "MORADIA"
-    SAUDE = "SAUDE"
-    EDUCACAO = "EDUCACAO"
-    LAZER = "LAZER"
-    SALARIO = "SALARIO"
-    OUTROS = "OUTROS"
 
 
 class Transaction(BaseModel):
